@@ -22,6 +22,52 @@ void DirectionalMap::generate()
 	//Pick a starting x,y:
 	int currentX = _width / 2;
 	int currentY = 1;
-	_data[currentX][currentY] = 0;
-	
+	//and a starting width
+	//recommended is anywhere from 3 to width:
+	int currentW = (rand() % (_width/2 - 4)) + 3;
+	//carve out the start:
+	for(int i=0; i<_length; i++)
+	{
+		carve(currentX, currentY, currentW, 1);
+		currentY += 1;
+		if(rand() % 100 < _roughness)
+		{
+			currentW += (rand() % 5) - 1;
+			if(currentW < 3)
+			{
+				currentW = 3;
+			}
+			if(currentX + currentW >= _width)
+			{
+				currentX = _width - currentW - 1;
+			}
+		}
+		if(rand() % 100 < _windyness)
+		{
+			currentX += (rand() % 5) - 1;
+			if(currentX <0)
+			{
+				currentX = 1;
+			}
+			if(currentX + currentW >= _width)
+			{
+				currentX = _width - currentW - 1;
+			}
+		}
+	}
 }
+
+void DirectionalMap::carve(int x, int y, int width, int height)
+{
+	for(int i=x; i<x+width; i++)
+	{
+		for(int j=y; j<y+height; j++)
+		{
+			if(inbounds(i,j))
+			{
+				_data[i][j] = 0;
+			}
+		}
+	}
+}
+

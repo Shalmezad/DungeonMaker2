@@ -47,3 +47,8 @@ void Map::print()
 		std::cout<<std::endl;
 	}
 }
+
+bool Map::inbounds(int x, int y)
+{
+	return x >= 0 && x < _width && y >= 0 && y < _height;
+}

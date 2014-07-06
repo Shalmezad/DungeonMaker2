@@ -14,10 +14,12 @@ class DirectionalMap: public Map
 										int, //Width
 										int, //Height
 										int = 20, //length
-										int = 50, //roughness
-										int	= 50 //windyness
+										int = 20, //roughness
+										int	= 20 //windyness
 		);
 		void generate(void);
+		//carves a rectangle out of the map
+		void carve(int, int, int, int);
 };
 
 #endif

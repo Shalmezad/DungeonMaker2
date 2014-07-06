@@ -16,7 +16,7 @@ class Map
 		void reset(int);
 		//TODO: Make this class and this method abstract
 		void generate(void);
-
+		bool inbounds(int, int);
 
 };
 
