@@ -1,7 +1,9 @@
+#ifndef _MAP_H_
+#define _MAP_H_
 
 class Map
 {
-	private:
+	protected:
 		int _width;
 		int _height;
 		int **_data;
@@ -12,6 +14,10 @@ class Map
 		~Map();
 		void print();
 		void reset(int);
+		//TODO: Make this class and this method abstract
+		void generate(void);
 
 
 };
+
+#endif
