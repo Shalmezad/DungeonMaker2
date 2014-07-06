@@ -12,7 +12,7 @@ class Map
 	public:
 		Map(int, int);
 		~Map();
-		void print();
+		void print(bool useInt = false);
 		void reset(int);
 		//TODO: Make this class and this method abstract
 		void generate(void);

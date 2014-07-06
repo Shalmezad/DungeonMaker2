@@ -36,13 +36,27 @@ void Map::reset(int fill)
 	}
 }
 
-void Map::print()
+void Map::print(bool useInt)
 {
 	for(int j=0; j<_width; j++)
 	{
 		for(int i=0; i<_height; i++)
 		{
-			std::cout<<_data[i][j];
+			if(useInt)
+			{
+				std::cout<<_data[i][j];
+			}
+			else
+			{
+				if(_data[i][j] == 0)
+				{
+					std::cout<<".";
+				}
+				else
+				{
+					std::cout<<"#";
+				}
+			}
 		}
 		std::cout<<std::endl;
 	}

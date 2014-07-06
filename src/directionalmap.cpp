@@ -32,7 +32,10 @@ void DirectionalMap::generate()
 		currentY += 1;
 		if(rand() % 100 < _roughness)
 		{
-			currentW += (rand() % 5) - 1;
+			int modifier = rand() % 2 + 1;
+			if(rand() % 2 == 0)
+				modifier *= -1;
+			currentW += modifier;
 			if(currentW < 3)
 			{
 				currentW = 3;
@@ -44,7 +47,12 @@ void DirectionalMap::generate()
 		}
 		if(rand() % 100 < _windyness)
 		{
-			currentX += (rand() % 5) - 1;
+			//currentX += (rand() % 5) - 1;
+			int modifier = rand() % 2 + 1;
+			if(rand() % 2 == 0)
+				modifier *= -1;
+			currentX += modifier;
+
 			if(currentX <0)
 			{
 				currentX = 1;
