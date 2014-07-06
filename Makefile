@@ -1,7 +1,7 @@
 
 build:
 	make prep
-	g++ src/main.cpp -o bin/DungeonMaker2
+	g++ src/*.cpp -o bin/DungeonMaker2
 prep:
 	mkdir -p bin
 clean:
